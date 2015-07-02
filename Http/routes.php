@@ -24,4 +24,6 @@ Route::get('/admin/changeLanguage/{key}', function($key){
 	return redirect()->back();
 });
 
-Route::get('/{page?}', 'PagesController@showPage');
+Route::get('/{page?}', 'SiteController@showPage');
+Route::get('/contentitem/{page?}/{id?}', 'SiteController@showContent');
+Route::get('/section/{page?}/{id?}', 'SiteController@showSection');

@@ -163,7 +163,7 @@ class Initialize {
 			view()->share('languages', $languages);
 
 			//Set the site language
-			\Lang::setlocale(\Session::get('language', \Lang::locale()));
+			\Lang::setlocale(\Session::get('language', \CMS::languages()->getDefaultLanguage()->key));
 		}
 
 		return $next($request);

@@ -3,7 +3,7 @@
 	"slug": "core",
 	"version": "1.0",
 	"description": "This is the description for the Core module.",
-    "repo_link": "https:\/\/github.com\/SherifElfadaly\/CoreModule.git",
+    "repo_link": "https://github.com/SherifElfadaly/CoreModule.git",
     "type" : "plugin",
 	"enabled": true
 }
