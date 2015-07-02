@@ -40,6 +40,30 @@ class SiteController extends Controller {
 	}
 
 	/**
+	 * Render the all Content Item from the giving 
+	 * Content Type.
+	 * 
+	 * @param  string $page
+	 * @return Response
+	 */
+	public function showAllContent($page = 'content', $contentType = false)
+	{
+		$page  = \CMS::pages()->first('page_slug', $page);
+		$theme = \CMS::coreModules()->getActiveTheme()->module_key;
+		if ( ! $page || ! view()->exists($theme . '::' . $page->template)) abort(404);
+
+		$seo      = \CMS::seo()->getSeo('page', $page->id);
+		$contents = false;
+		if ($contentType) 
+		{
+			$contents = \CMS::contentItems()->getAllContents($contentType, \Lang::locale());
+			$contents->setPath(url('contentitem', [$page->page_slug ,$contentType]));
+		}
+
+		return view($theme . '::' . $page->template, compact('page', 'seo', 'contents'));
+	}
+
+	/**
 	 * Render the given Section Content Items.
 	 * 
 	 * @param  string $page
