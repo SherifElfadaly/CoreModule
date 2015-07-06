@@ -25,6 +25,7 @@ Route::get('/admin/changeLanguage/{key}', function($key){
 });
 
 Route::get('/{page?}', 'SiteController@showPage');
-Route::get('/contentitem/{page?}/{contentType?}', 'SiteController@showAllContent');
-Route::get('/contentitem/{page?}/{id?}', 'SiteController@showContent');
-Route::get('/section/{page?}/{id?}', 'SiteController@showSection');
+Route::get('/contentitem/{page?}/{idOrContentType?}', 'SiteController@showContent');
+Route::get('/section/{page?}/{contentType?}/{id?}', 'SiteController@showSection');
+Route::get('/tag/{page?}/{contentType?}/{id?}', 'SiteController@showTag');
+Route::get('/archive/{page?}/{contentType?}/{type?}/{value?}', 'SiteController@showArchive');
